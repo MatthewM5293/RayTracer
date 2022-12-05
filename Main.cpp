@@ -1,13 +1,14 @@
 #include "Renderer/Renderer.h"
+#include "Objects/Sphere.h"
 #include <iostream>
 
 int main(int argc, char** argv)
 {
 	Renderer renderer;
 	renderer.Initialize();
-	renderer.CreateWindow(800, 600);
+	renderer.CreateWindow(600, 300); //800 600
 
-	Canvas canvas(600, 400, renderer);
+	Canvas canvas(600, 300, renderer);
 
 	bool quit = false;
 	while (!quit)
@@ -33,7 +34,8 @@ int main(int argc, char** argv)
 
 		//render scene
 		canvas.Clear({ 0, 0, 0, 1});
-		renderer.Render(canvas);
+		auto sphere = std::make_unique<Sphere>(glm::vec3{ 0, 0, 1 }, 0.5f, nullptr);
+		renderer.Render(canvas, sphere.get());
 		canvas.Update();
 
 		renderer.CopyCanvas(canvas);

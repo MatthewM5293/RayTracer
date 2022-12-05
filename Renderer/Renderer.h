@@ -1,6 +1,7 @@
 #pragma once
 #include "Canvas.h"
 #include "../Math/Ray.h"
+#include "../Objects/Object.h"
 #include <SDL.h>
 
 class Renderer
@@ -11,7 +12,7 @@ public:
 	bool Initialize();
 	void ShutDown();
 
-	void Render(Canvas& canvas);
+	void Render(Canvas& canvas, Object* object);
 
 	bool CreateWindow(int width, int height);
 
