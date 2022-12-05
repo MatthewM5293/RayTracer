@@ -19,6 +19,6 @@ inline float random(float min, float max)
 template <typename T>
 inline T interp(T a, T b, float t)
 {
-	return (a * (1.0 - t)) + (b * t);
+	return (a * (1.0f - t)) + (b * t);
 	//return a + (a - b) * t; //alt way of interpolating
 }
