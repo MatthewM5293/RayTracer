@@ -4,6 +4,9 @@
 #include "../Objects/Object.h"
 #include <SDL.h>
 
+class Object;
+class Scene;
+class Camera;
 class Renderer
 {
 public:
@@ -12,7 +15,7 @@ public:
 	bool Initialize();
 	void ShutDown();
 
-	void Render(Canvas& canvas, Object* object);
+	void Render(Canvas& canvas, Scene& scene, Camera& camera);
 
 	bool CreateWindow(int width, int height);
 
