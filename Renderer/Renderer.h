@@ -15,7 +15,7 @@ public:
 	bool Initialize();
 	void ShutDown();
 
-	void Render(Canvas& canvas, Scene& scene, Camera& camera);
+	void Render(Canvas& canvas, Scene& scene, Camera& camera, int samples = 5);
 
 	bool CreateWindow(int width, int height);
 

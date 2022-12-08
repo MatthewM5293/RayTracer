@@ -1,5 +1,4 @@
 #include "Camera.h"
-//#include "../Math/Ray.h"
 
 Camera::Camera(const glm::vec3& eye, const glm::vec3& target, const glm::vec3& up, float fov, float aspectRatio) :
     m_fov{ fov },

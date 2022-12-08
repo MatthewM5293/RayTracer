@@ -17,6 +17,10 @@ inline float random(float min, float max)
 	return min + (max - min) * random01();
 }
 
+/// <summary>
+/// Gets a random In Unit Sphere
+/// </summary>
+/// <returns>point</returns>
 inline glm::vec3 randomInUnitSphere()
 {
 	glm::vec3 point;
@@ -24,8 +28,25 @@ inline glm::vec3 randomInUnitSphere()
 	{
 		point = glm::vec3{ random(-1, 1), random(-1, 1), random(-1, 1) };
 	} while (glm::length2(point) >= 1);
+	
 	return point;
 
+}
+
+inline float dot(const glm::vec3& v1, const glm::vec3& v2)
+{
+	return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+}
+
+/// <summary>
+/// Reflection
+/// </summary> Get reflection vector
+/// <param name="v"></param>
+/// <param name="n"></param>
+/// <returns>Reflection Vector</returns>
+inline glm::vec3 reflect(const glm::vec3& v, const glm::vec3& n)
+{
+	return v - (n * dot(n, v)) * 2.0f;
 }
 
 template <typename T>
