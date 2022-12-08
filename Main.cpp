@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 {
 	const int width = 800;
 	const int height = 600;
-	const int samples = 100;
+	const int samples = 1;
 
 	Renderer renderer;
 	renderer.Initialize();
