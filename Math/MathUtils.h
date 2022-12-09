@@ -55,3 +55,26 @@ inline T lerp(T a, T b, float t)
 	return (a * (1.0f - t)) + (b * t);
 	//return a + (a - b) * t; //alt way of interpolating
 }
+
+inline bool refract(const glm::vec3& v, const glm::vec3& n, float index, glm::vec3& refracted)
+{
+	glm::vec3 nv = glm::normalize(v);
+	float dt = dot(nv, n);
+	float discriminant = 1 - (index * index) * (1 - dt * dt);
+	if (discriminant > 0)
+	{
+		refracted = index * (nv - (n * dt)) - (n * std::sqrt(discriminant));
+		return true;
+	}
+
+	return false;
+}
+
+// calculate specular reflection coefficient, or probability of reflection
+inline float schlick(float cosine, float index)
+{
+	float r0 = (1.0f - index) / (1 + index);
+	r0 = r0 * r0;
+	return r0 + (1.0f - r0) * (float)std::pow((1.0f - cosine), 5);
+}
+
